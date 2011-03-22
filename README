@@ -2,7 +2,8 @@
    Dynare Fixer
 ==================
 
-This allows you to add functions within Dynare. Before your model before you can put function declarations.
+This allows you to add functions within Dynare. Before your model section you can declare any functions
+you might want to use in your code.
 
 For example, here is a Cobb-Douglas production function:
 
@@ -22,8 +23,12 @@ partial derivative of a utility function):
    Dependencies
 ==================
 
-To use Dynare Fixer, you have to have the Ruby programming language installed. Then to run you use it
-like this:
+To use Dynare Fixer, you have to have the Ruby programming language installed. In Ubuntu this can be done
+easily:
+
+  sudo apt-get install ruby
+
+Then to run you use it like this:
 
   ruby dynare_fixer.rb INPUT_FILE OUTPUT_FILE
 
