@@ -1,0 +1,31 @@
+==================
+   Dynare Fixer
+==================
+
+This allows you to add functions within Dynare. Before your model before you can put function declarations.
+
+For example, here is a Cobb-Douglas production function:
+
+  def f(l, k)  = l^alpha * k^beta;
+
+The derivatives you still need to do manually:
+
+  def f1(l, k) = alpha * l^(alpha - 1) * k^beta;
+  def f2(l, k) = beta * l^alpha * k^(beta - 1);
+
+Then somewhere in your model section you might have an Euler equation something like this (where u2 is a
+partial derivative of a utility function):
+
+  u2(c, l) = beta * u2(c(+1), l(+1));
+
+==================
+   Dependencies
+==================
+
+To use Dynare Fixer, you have to have the Ruby programming language installed. Then to run you use it
+like this:
+
+  ruby dynare_fixer.rb INPUT_FILE OUTPUT_FILE
+
+Where INPUT_FILE is the .mod file with the function declarations, and OUTPUT_FILE is where the outputted
+valid Dynare code will go.
