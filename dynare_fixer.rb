@@ -36,7 +36,7 @@ def args_replace command, name, args, expression
 
   # do the substitutions
   command[0..(initial_offset - name.length - 2)] + "(" + args.zip(args_expr).inject(expression) do |result, (find, repl)|
-    result.gsub(/\b#{Regexp.escape find}\b/, repl)
+    result.gsub(/\b#{Regexp.escape find}\b/, "(" + repl + ")")
   end + ")" + command[(offset + 1)..-1]
 end
 
